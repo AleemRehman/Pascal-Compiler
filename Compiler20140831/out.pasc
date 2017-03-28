@@ -1,0 +1,39 @@
+label start
+fconst PI 3.14159
+fconst E 2.1111
+iconst i
+iconst t1
+fconst t2
+iconst k
+iconst n
+label __Main__
+push input a number:
+call write
+load k
+call read
+load k
+call write
+load k
+call calcsin
+push 10
+push 20
+add
+push 10
+push 10
+mul
+add
+store i
+push 10
+push 20
+mul
+push 20
+add
+store t2
+load i
+call write
+load t2
+call write
+push Hello World
+call write
+load PI
+call write

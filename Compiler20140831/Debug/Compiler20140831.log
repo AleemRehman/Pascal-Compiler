@@ -1,0 +1,114 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Compiler20140831.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  VirrualMachine.cpp
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(162): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(327): note: see reference to function template instantiation 'void vm::VirtualMachine::calcsin<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(163): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(165): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(177): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(331): note: see reference to function template instantiation 'void vm::VirtualMachine::calcsinh<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(178): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(180): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(214): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(335): note: see reference to function template instantiation 'void vm::VirtualMachine::calctan<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(215): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(216): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(293): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(339): note: see reference to function template instantiation 'void vm::VirtualMachine::calccubic<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(295): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(192): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(343): note: see reference to function template instantiation 'void vm::VirtualMachine::calccos<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(193): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(194): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(203): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(347): note: see reference to function template instantiation 'void vm::VirtualMachine::calccosh<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(204): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(205): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(225): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(351): note: see reference to function template instantiation 'void vm::VirtualMachine::calclog<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(226): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(236): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(355): note: see reference to function template instantiation 'void vm::VirtualMachine::calclogb<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(237): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(247): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(359): note: see reference to function template instantiation 'void vm::VirtualMachine::calclog10<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(249): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(259): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(363): note: see reference to function template instantiation 'void vm::VirtualMachine::calcexp2<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(260): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(270): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(367): note: see reference to function template instantiation 'void vm::VirtualMachine::calcexp<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(271): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(281): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(371): note: see reference to function template instantiation 'void vm::VirtualMachine::calcpow<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(283): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(305): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(375): note: see reference to function template instantiation 'void vm::VirtualMachine::calcsqrt<std::string>(T)' being compiled
+          with
+          [
+              T=std::string
+          ]
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\virrualmachine.cpp(307): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  SemanticAnalyzer.cpp
+  CodeGen.cpp
+  Generating Code...
+  Compiling...
+  SymbolTable.cpp
+  parser.cpp
+  main.cpp
+  Generating Code...
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\parser.cpp(616): warning C4715: 'swd::Parser::parseFactor': not all control paths return a value
+c:\users\aleem ur-rehman\desktop\final compiler\compiler stable\compiler20140831\symboltable.cpp(63): warning C4715: 'swd::SymbolTable::findInnerTable': not all control paths return a value
+  Skipping... (no relevant changes detected)
+  SemanticAnalyzerBase.cpp
+  PascalAst.cpp
+  lexer.cpp
+  Compiler20140831.vcxproj -> C:\Users\Aleem Ur-Rehman\Desktop\FINAL compiler\Compiler Stable\Debug\Compiler.exe
+  Compiler20140831.vcxproj -> C:\Users\Aleem Ur-Rehman\Desktop\FINAL compiler\Compiler Stable\Debug\Compiler.pdb (Full PDB)
