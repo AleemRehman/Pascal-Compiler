@@ -161,8 +161,8 @@ namespace swd
 	{
 		this->value = node.value;
 		this->parent = node.parent;
-		//copy(node.list.begin(), node.list.end(), this->list);//没有分配空间出错
-		list.resize(node.list.size());//必不可少
+		//copy(node.list.begin(), node.list.end(), this->list);
+		list.resize(node.list.size());
 		std::copy(node.list.begin(), node.list.end(), std::back_inserter(list));
 		return 1;
 	}
@@ -175,7 +175,7 @@ namespace swd
 	///-----------------------------------------------------------------------
 	///Parser begin-----------------------------------------------------------
 	///-----------------------------------------------------------------------
-	bool Parser::advance(Tag t)//超前查看可选的Follow，没有的话直接跳过
+	bool Parser::advance(Tag t)
 	{
 		if ((it + 1)->tag == t)
 		{
@@ -185,7 +185,7 @@ namespace swd
 			return false;
 	}
 
-	bool Parser::find(Tag t)//可选的Follow，没有的话直接跳过
+	bool Parser::find(Tag t)
 	{
 		if (it->tag == t)
 		{
@@ -195,7 +195,7 @@ namespace swd
 			return false;
 	}
 
-	bool Parser::match(Tag t)//必须有的部分，没有就报错
+	bool Parser::match(Tag t)
 	{
 		if (it->tag == t)
 			return true;
@@ -212,7 +212,7 @@ namespace swd
 		if (it->tag == PROGRAM)
 		{
 			it++;
-			//根节点生成
+
 			shared_ptr<Node> beginNode = make_shared<Node>();
 			beginNode->value = *it;
 			root = beginNode;
@@ -264,7 +264,7 @@ namespace swd
 				{
 					shared_ptr<Statement> block = 
 						parseStmtList(currNode == root ? FINISH : END);
-					//root的block与函数的block
+
 					if (currNode != root)
 					{
 						(static_pointer_cast<FunctionStmt>(currNode))->body=block;
@@ -284,32 +284,32 @@ namespace swd
 				break;
 		}
 	}
-	//函数和过程的通用解析方法
+	
 	shared_ptr<Statement> Parser::parseProcedureBase(bool isFunction)
 	{
 		shared_ptr<FunctionStmt> funcStmt = make_shared<FunctionStmt>();
 		shared_ptr<FunctionDecl> funcDecl = make_shared<FunctionDecl>();
 		funcStmt->funcDecl = funcDecl;
-		//保存当前结点，将当前结点指向函数结点
+		
 		currNode->addNode(funcStmt);
 		shared_ptr<Node> tmpNode = currNode;
 		currNode = funcStmt;
-		//获取函数名
+		
 		it++;
 		if (it->tag == IDENT)
 		{
 			funcDecl->name = it->value;
 		}
-		//匹配左括号
+		
 		it++;
 		match(OpenBracket);
-		//解析参数
+		
 		it++;
 		while (it->tag != CloseBracket)
 		{
 			vector<std::string> args;
 			while (!args.empty())args.pop_back();
-			//解析参数列表Lambda表达式-------------------------------
+			
 			auto parseArgs = [&](){
 				while (it->tag != Colon)
 				{
@@ -332,8 +332,8 @@ namespace swd
 					funcDecl->vars.push_back(varDecl);
 				}
 			};
-			//-----------------------------------------------
-			if (it->tag == VAR)//有VAR为引用传递，否则为值传递
+
+			if (it->tag == VAR)
 			{
 				it++;
 				parseArgs();
@@ -343,7 +343,7 @@ namespace swd
 				parseArgs();
 			}
 			it++;//match(";") or ")"
-			if (find(SEMI))//如果是;,继续循环，否则应该是）,退出循环
+			if (find(SEMI))
 			{
 				it++;
 			}
@@ -356,17 +356,17 @@ namespace swd
 		match(Colon);
 		it++;//return value
 		funcDecl->type = DeclaredType::Procedure;
-		if (isFunction)//函数有返回值,过程没有
+		if (isFunction)
 		{
 			funcDecl->type = DeclaredType::Function;
 			funcDecl->returnType = it->value;
 			it++;
 		}
 		match(SEMI);
-		if (!advance(FORWORD))//是否有forword关键字声明
+		if (!advance(FORWORD))
 		{
 			//var or begin
-			parseBlock();//无论下一个Token是VAR还是BEGIN，都可以用Block解析,且在内部加入到currentnode
+			parseBlock();
 			currNode = tmpNode;
 			return funcStmt;
 		}
@@ -421,7 +421,7 @@ namespace swd
 		return varDecl;
 	}
 
-	shared_ptr<TypeStmt> Parser::parseType()//暂不支持数组和枚举类型
+	shared_ptr<TypeStmt> Parser::parseType()
 	{
 		it++;
 		auto typeRootVal = make_shared<TypeStmt>();
@@ -511,7 +511,6 @@ namespace swd
 			Error err("syntax error", *it);
 			listError.push_back(err);
 		}
-		//记录赋值表达式的id到符号表
 		return assign;
 	}
 
@@ -619,13 +618,13 @@ namespace swd
 	{
 		auto tmpNode = currNode;
 		shared_ptr<Statement> stList = make_shared<Statement>();
-		currNode = stList;//所有子节点将加入到block上
+		currNode = stList;
 
 		stList->value = *it;
 		it++;
 		while (it->tag != teminator)
 		{
-			if (it->tag == END && teminator != END)//处理begin..end的匹配情况
+			if (it->tag == END && teminator != END)
 			{
 				shared_ptr<Statement> st1 = make_shared<Statement>();
 				st1->value = *it;
@@ -636,7 +635,7 @@ namespace swd
 			stList->addNode(st);
 			it++;
 		}
-		//恢复currNode
+		//鎭㈠currNode
 		currNode = tmpNode;
 		return stList;
 	}
@@ -657,10 +656,10 @@ namespace swd
 		};
 		switch (it->tag)
 		{
-			//VAR,TYPE,Function call,If,Else,While,For,有的可改变currNode,有的不可
+			//VAR,TYPE,Function call,If,Else,While,For
 			/*case BEGIN:
 				break;*/
-			case IDENT://此处默认为赋值表达式，实际上大错特错，如果是 函数调用 何如?
+			case IDENT:
 				if (advance(BIND))
 				{
 					shared_ptr<AssignStmt> assign = parseAssign();
@@ -673,7 +672,7 @@ namespace swd
 					//currNode->addNode(funcCall);
 					return funcCall;
 				}
-			//暂不支持嵌套函数
+
 			/*case FUNCTION:
 				break;
 			case PROCEDURE:
@@ -769,7 +768,7 @@ namespace swd
 			shared_ptr<IfStmt> elseifnode = static_pointer_cast<IfStmt>(parseIf());
 			elseStmt->addNode(elseifnode);
 		}
-		else if (match(BEGIN))//match begin Compound Statement 复合语句
+		else if (match(BEGIN))//match begin Compound Statement
 		{
 			shared_ptr<Statement> body = parseStmtList(END);
 			elseStmt->body = body;
@@ -777,7 +776,7 @@ namespace swd
 			it++;
 			match(SEMI);
 		}
-		else//单行语句
+		else
 		{
 			shared_ptr<Statement> body1 = parseStatement();
 			elseStmt->addNode(body1);
