@@ -272,7 +272,7 @@ namespace swd
 						//stay this state
 						lexeme.append(&peek);
 					}
-					else if (peek == '"')//此时读到 "，引号并不需要，直接丢弃，读指针不再回退
+					else if (peek == '"')
 					{
 						isLexemeDone = true;
 					}
@@ -295,7 +295,7 @@ namespace swd
 						currIndex--;
 						break;
 					case State::StString:
-						currToken->tag = STRING;//读指针不再回退
+						currToken->tag = STRING;
 						break;
 					case State::StIdentify:
 						if (keywords.find(lexeme) != keywords.end())
