@@ -31,7 +31,7 @@ namespace compiler{
 	{
 	public:
 		OperationType _opType;
-		string _op1, _op2; //目标代码生成时使用
+		string _op1, _op2;
 		int Count;
 		IRCode()
 		{

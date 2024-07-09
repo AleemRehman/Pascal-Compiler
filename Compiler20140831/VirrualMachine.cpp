@@ -38,7 +38,7 @@ VirtualMachine::VirtualMachine(compiler::IRCodeGen *generator,
 void VirtualMachine::move()
 {
 	it++;
-	programCounter=it - generator->IRCodeFile.begin();//永远保持与it同步
+	programCounter=it - generator->IRCodeFile.begin();
 }
 
 void VirtualMachine::initRuntimeInfo()
@@ -77,7 +77,6 @@ void VirtualMachine::compute(char op)
 		StackItem item2 = vStack.back();
 		vStack.pop_back();
 
-		//此处见得带后缀的指令的好处
 		if (item1.type == Tag::INT && item2.type == Tag::INT)
 		{
 			resultType = Tag::INT;
@@ -117,8 +116,8 @@ void VirtualMachine::compute(char op)
 			vStack.push_back(sitem);
 		}
 	}
-	else if ((*it)->Count == 2)//一般来说，此类表达式出现于for循环 add a 1
-	{
+	else if ((*it)->Count == 2){
+
 		if (varStack.find((*it)->_op1) != varStack.end())
 		{
 			string val = varStack[(*it)->_op1];
@@ -319,7 +318,8 @@ void VirtualMachine::functionExec(string funcName, StackItem *params, int args)
 		string s;
 		read(&s);
 		params[0].value = s;
-		//更新varStack的k,读之前已经加载到了变量栈
+
+
 		varStack[params[0].name]=params[0].value;
 	}
 	else if (funcName == "calcsin"&& args == 1)
@@ -532,7 +532,8 @@ void VirtualMachine::scan()
 		vStack.pop_back();
 		StackItem item2 = vStack.back();
 		vStack.pop_back();
-		if (atof(item1.value.c_str()) - atof(item2.value.c_str()) == 0)//相等时，标志位为真
+		if (atof(item1.value.c_str()) - atof(item2.value.c_str()) == 0)//
+		
 		{
 			reg_flag = true;
 		}
@@ -587,7 +588,7 @@ void VirtualMachine::scan()
 		vStack.pop_back();
 		StackItem item2 = vStack.back();
 		vStack.pop_back();
-		if (atof(item1.value.c_str()) - atof(item2.value.c_str()) == 0)//相等时，标志位为真
+		if (atof(item1.value.c_str()) - atof(item2.value.c_str()) == 0)
 		{
 			reg_flag = true;
 		}
@@ -602,14 +603,14 @@ void VirtualMachine::scan()
 		if (rtInfo.currentScope == "global")
 		{
 			it = generator->IRCodeFile.begin() + labelPos["__Main__"];
-			isJmpOrCall = true;//第一次到这里的时候要跳到__Main__
+			isJmpOrCall = true;
 		}
 		break;//nothing to do with FUNC instruction
 	}
 	case OperationType::PARAM:
 	{
 		static bool isTableFound=false;
-		//果然需要倒序入栈，TMD运行时需要pop栈中的实参，实参此时正好是倒序
+		
 		StackItem item = vStack.back();
 		vStack.pop_back();
 		if (!isTableFound)
@@ -618,15 +619,15 @@ void VirtualMachine::scan()
 			isTableFound = true;
 		}
 		//Tag t = currentTable->lookupInScope((*it)->_op1)->value.tag;
-		rtInfo.paramNum++;//有几个param。初始化时实参已经加入到了stack上，但是ret时需要将实参也删除，此处必须确定实参个数
+		rtInfo.paramNum++;//
 		varStack.insert(std::pair<string, string>((*it)->_op1, item.value));
-		//distance 对iterator做减法
+		//distance 
 		rtInfo.varStackItems.push_back(distance(varStack.find((*it)->_op1),varStack.begin()));
 		break;
 	}
 	case OperationType::RET:
 	{
-		isJmpOrCall = true;//ret也是跳转指令
+		isJmpOrCall = true;
 		if (labelPos.find(rtInfo.currentScope + "_call") != labelPos.end())
 		{
 			it = generator->IRCodeFile.begin() + labelPos[rtInfo.currentScope + "_call"];
@@ -647,17 +648,17 @@ void VirtualMachine::scan()
 			constStack.pop_back();
 			constStackClear--;
 		}
-		while (rtInfo.varStackItems.size()>0)//删除新加的局部变量
+		while (rtInfo.varStackItems.size()>0)
 		{
 			int item = rtInfo.varStackItems.back();
-			//map是非线性的容器，iterator不能直接加减
+			
 			map<string,string>::iterator iter= varStack.begin();
-			advance(iter, item);//前移iterator
+			advance(iter, item);
 			varStack.erase(iter);
 			rtInfo.varStackItems.pop_back();
 		}
 		rtInfo.constStackItems = constStack.size();
-		currentTable = currentTable->outer;//恢复符号表
+		currentTable = currentTable->outer;
 		
 		break;
 	}
@@ -684,11 +685,11 @@ void VirtualMachine::scan()
 		break;
 	}
 	}
-	if (!isJmpOrCall)//非跳转指令指针移动
+	if (!isJmpOrCall)
 	{
 		move();
 	}
-	else//跳转指令无需移动
+	else
 	{
 		isJmpOrCall = false;
 		programCounter = it - generator->IRCodeFile.begin();

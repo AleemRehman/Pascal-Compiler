@@ -39,9 +39,9 @@ namespace vm
 		vector<shared_ptr<IRCode>>::iterator it;
 		vector<Error> errList;
 		//stack
-		vector<StackItem> constStack;//常量 全局变量栈
-		vector<StackItem> vStack;//全局普通栈
-		map<string, string> varStack;//局部变量栈
+		vector<StackItem> constStack;
+		vector<StackItem> vStack;
+		map<string, string> varStack;
 		//code generator
 		compiler::IRCodeGen *generator;
 		swd::SymbolTable *symTable;
@@ -58,7 +58,7 @@ namespace vm
 		void run();
 		void compute(char op);
 		void functionExec(string funcName, StackItem *params, int args);
-		//built-in ...something wrong...yabaiyo
+		//built-in ...something wrong
 		template<typename T>
 		void write(T stringOrNum);
 		template<typename T>

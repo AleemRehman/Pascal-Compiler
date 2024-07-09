@@ -153,7 +153,7 @@ namespace swd{
 	{
 	public:
 		shared_ptr<FunctionDecl> funcDecl;
-		//std::vector<VariableStmt*> decls;//»•nodelist¿Ô’“∞…
+		//std::vector<VariableStmt*> decls;//»•nodelist
 		shared_ptr<Statement> body;
 		//shared_ptr<Statement> returnVal;
 		void print();
